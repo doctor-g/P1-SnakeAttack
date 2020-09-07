@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/AngleIndicator.gd" type="Script" id=1]
+[ext_resource path="res://src/PowerIndicator.gd" type="Script" id=2]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="AngleIndicator" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 350.0
+margin_right = 207.79
+margin_bottom = 364.56
+text = "Angle: "
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerIndicator" type="Label" parent="."]
+margin_left = 92.5043
+margin_top = 102.408
+margin_right = 160.504
+margin_bottom = 116.408
+text = "Power: "
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PowerSlider" type="HSlider" parent="."]
+margin_left = 200.0
+margin_top = 75.0
+margin_right = 364.0
+margin_bottom = 143.0
+max_value = 100.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AngleSlider" type="VSlider" parent="."]
+margin_left = 100.0
+margin_top = 224.0
+margin_right = 192.0
+margin_bottom = 340.0
+max_value = 10.0
+tick_count = 18
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="PowerSlider" to="PowerIndicator" method="_on_PowerSlider_value_changed"]
+[connection signal="value_changed" from="AngleSlider" to="AngleIndicator" method="_on_AngleSlider_value_changed"]
